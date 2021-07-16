@@ -1,0 +1,16 @@
+services:
+  web:
+    image: php:7.4-apache-custom
+    volumes:
+      - .:/var/www/html/
+    ports:
+      - "80:80"
+  horizon:
+    image: php:7.4-apache-custom
+    volumes:
+      - .:/var/www/html/
+    command: "php artisan horizon"
+  redis:
+    image: redis:5.0.12-alpine
+    ports:
+      - "6379:6379"
